@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+/**
+ * create package
+ * usage: yarn nx <package_name>
+ *
+ *  <package>
+ *  |- [src]
+ *  |   `- index.ts
+ *  |- CHANGELOG.md
+ *  |- README.md
+ *  |- tsconfig.json
+ *  `- package.json
+ *
+ * ###############################
+ *
+ * delete package
+ * useage: yarn nx -d <package_name>
+ */
+
+const program = require('commander');
+const genFile = require('genfile');
+const chalk = require('chalk');
+const rimraf = require('rimraf');
+const templates = require('./pkg-tpl');
+const log = console.log;
+
+program
+ .option('-d, --delete', 'delete package');
+
+const argv = program.parse(process.argv);
+
+const pkgName = argv.args[0];
+
+if (pkgName === undefined) {
+  log(chalk.red('Please enter the package name'));
+  process.exit();
+} else {
+  if (program.delete) {
+    rimraf(`./packages/${pkgName}`, () => {
+      log(chalk.red(`[remove]: ${pkgName}`));
+    })
+  } else {
+    log(chalk.yellow(`Ready to create ${pkgName}...`));
+    setTimeout(() => {
+      const template = templates(pkgName);
+
+      Array.isArray(template) && Promise.all(template.map(tpl => genFile(tpl)))
+        .then(() => log(chalk.green(`[package]: ${pkgName}`)));
+    }, 1000);
+  }
+}

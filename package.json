@@ -1,18 +1,27 @@
 {
   "name": "nx",
-  "author": "lencx",
   "private": true,
+  "version": "0.0.1",
+  "author": "lencx <cxin1314@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "./scripts/build",
     "watch": "./scripts/watch",
-    "clean": "rimraf packages/**/{lib,esm}/"
+    "clean": "rimraf packages/**/{lib,esm}/",
+    "nx": "node ./.bin/nx"
   },
   "devDependencies": {
+    "camelcase": "^5.3.1",
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "decamelize": "^3.2.0",
+    "genfile": "^0.1.0",
     "lerna": "^3.18.4",
+    "moment": "^2.24.0",
     "rimraf": "^3.0.0"
   },
   "workspaces": [
-    "packages/*"
+    "./packages/*"
   ]
 }

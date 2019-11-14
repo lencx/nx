@@ -1,0 +1,13 @@
+#!/usr/bin/env
+
+// usage: yarn new <package_name>
+
+/**
+<package>
+|- [src]
+|   `- index.ts
+|- CHANGELOG.md
+|- README.md
+|- tsconfig.json
+`- package.json
+*/

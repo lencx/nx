@@ -31,6 +31,9 @@ const packageTpl = pkgName => `{
     "type": "git",
     "url": "git+ssh://git@github.com/nofwl/nx.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "${pkgName}"
   ],
@@ -47,8 +50,8 @@ const tsconfigTpl = `{
   "extends": "../../tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
-      "outDir": "lib",
-      "rootDir": "src"
+    "outDir": "lib",
+    "rootDir": "src"
   }
 }
 `;

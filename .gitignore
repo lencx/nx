@@ -12,3 +12,7 @@ yarn.lock
 
 # log
 *.log
+
+# build
+/packages/**/lib
+/packages/**/esm

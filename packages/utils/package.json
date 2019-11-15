@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git+ssh://git@github.com/nofwl/nx.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "utils"
   ],

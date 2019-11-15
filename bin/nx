@@ -1,0 +1,112 @@
+#!/usr/bin/env node
+
+/**
+ * create package
+ * usage: yarn nx <package_name>
+ *
+ *  <package>
+ *  |- [src]
+ *  |   `- index.ts
+ *  |- CHANGELOG.md
+ *  |- README.md
+ *  |- tsconfig.json
+ *  `- package.json
+ *
+ * ###############################
+ *
+ * other command:
+ * useage: yarn nx [-bdirtwhV] <package_name>
+ */
+
+const program = require('commander');
+const genFile = require('genfile');
+const chalk = require('chalk');
+const shell = require('shelljs');
+const validate = require("validate-npm-package-name");
+
+const templates = require('./pkg-tpl');
+const pkg = require('../package.json');
+const log = console.log;
+
+program
+  .option('-b, --build', 'build package')
+  .option('-d, --delete', 'delete package')
+  .option('-i, --install', 'install package')
+  .option('-r, --remove', 'remove build: `lib` and `esm` directory')
+  .option('-t, --test', chalk.yellow('test package #TODO')) // TODO
+  .option('-w, --watch', 'watch package')
+  .version(pkg.version);
+
+const argv = program.parse(process.argv);
+
+const pkgName = argv.args[0];
+
+const createPackage = () => {
+  log(chalk.yellow(`Ready to create ${pkgName}...`));
+  setTimeout(() => {
+    const template = templates(pkgName);
+    Array.isArray(template) && Promise.all(template.map(tpl => genFile(tpl)))
+      .then(() => {
+        log(chalk.grey('\n##################################'));
+        log(chalk.green(`[package]: ${pkgName}`));
+        shell.exec('yarn nx -h');
+        process.exit();
+      });
+  }, 1000);
+}
+
+if (pkgName === undefined || pkgName === '-') {
+  log(chalk.red('Please enter the package name'));
+  process.exit();
+} else {
+  // valid npm package name
+  const valid = validate(pkgName);
+
+  if (!valid.validForNewPackages) {
+    if (!valid.validForOldPackages) {
+      // invalid: never a valid package name
+      log(
+        chalk.red(`[invalid]:`),
+        chalk.bgBlackBright(`${pkgName}`),
+        chalk.blue(valid.errors.join(', ')),
+      );
+      process.exit();
+    } else {
+      // legacy names: in the old days of npm, package names were wild
+      log(
+        chalk.yellow(`[warn]:`),
+        chalk.bgBlackBright(`${pkgName}`),
+        chalk.blue(valid.warnings.join(', ')),
+      );
+    }
+  }
+
+  // package root path
+  const basePath = `./packages/${pkgName}`;
+
+  if (program.build || program.delete || program.install || program.remove || program.watch) {
+    if (program.build) {
+      log(chalk.green(`[build]: ${pkgName}`));
+      shell.exec(`cd ${basePath} && npm run build`);
+    }
+    if (program.delete) {
+      log(chalk.red(`[delete]: ${pkgName}`));
+      shell.rm('-rf', basePath);
+    }
+    if (program.install) {
+      log(chalk.green(`[install]: ${pkgName}`));
+      shell.exec(`cd ${basePath} && npm i`);
+    }
+    if (program.watch) {
+      log(chalk.cyan(`[watch]: ${pkgName}`));
+      shell.exec(`cd ${basePath} && npm run watch`);
+    }
+    if (program.remove) {
+      shell.rm('-rf', `${basePath}/{esm,lib}`);
+      log(chalk.red(`[remove]: ${pkgName}/{esm,lib}`));
+    }
+    process.exit();
+  } else {
+    createPackage();
+  }
+}

@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*", "src/.stories/Button.story.tsx"],
+  "include": ["src/**/*"],
   "compilerOptions": {
     "outDir": "lib",
     "rootDir": "src"

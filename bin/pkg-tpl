@@ -22,11 +22,15 @@ const packageTpl = pkgName => `{
   "license": "MIT",
   "homepage": "https://github.com/nofwl/nx#readme",
   "scripts": {
+    "build:cjs": "tsc",
+    "build:esm": "tsc -m esNext --outDir esm",
     "build": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "tsc --outDir esm --module es2015",
-    "build:esm": "tsc",
     "watch": "tsc --watch"
   },
+  "files": [
+    "lib/",
+    "esm/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/nofwl/nx.git"
@@ -48,12 +52,33 @@ const readmeTpl = pkgName => `# ${pkgName}
 
 const tsconfigTpl = `{
   "extends": "../../tsconfig.json",
-  "include": ["src"],
+  "include": ["src/**/*"],
   "compilerOptions": {
     "outDir": "lib",
     "rootDir": "src"
   }
 }
+`;
+
+const gitignore = `# macOS
+.DS_Store
+
+# node.js
+node_modules
+package-lock.json
+yarn.lock
+
+# IDE
+.idea
+.vscode
+
+# log
+*.log
+
+# build
+/lib
+/esm
+/storybook-static
 `;
 
 module.exports = pkgName => {
@@ -73,5 +98,8 @@ module.exports = pkgName => {
   }, {
     filename: `${pkgBasePath}/tsconfig.json`,
     template: tsconfigTpl,
+  }, {
+    filename: `${pkgBasePath}/.gitignore`,
+    template: gitignore,
   }]
 }

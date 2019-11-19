@@ -16,9 +16,13 @@ yarn nx [-bdirwhV] <package_name>
 
 # ---------------------------
 
-yarn clean
+yarn clean # package/{lib,esm} & storybook-static
+
+yarn storybook # dev
+yarn storybook:build
 ```
 
 ## Packages
 
-* utils
+- [ ] hooks - react hooks
+- [ ] utils

@@ -9,9 +9,6 @@
   "license": "MIT",
   "homepage": "https://github.com/nofwl/nx#readme",
   "scripts": {
-    "start": "yarn storybook",
-    "storybook": "start-storybook -p 6300",
-    "storybook:build": "build-storybook",
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
     "build": "yarn build:cjs && yarn build:esm",
@@ -33,27 +30,5 @@
   ],
   "bugs": {
     "url": "https://github.com/nofwl/nx/issues"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/preset-typescript": "^7.7.2",
-    "@storybook/addon-actions": "^5.2.6",
-    "@storybook/addon-knobs": "^5.2.6",
-    "@storybook/addon-links": "^5.2.6",
-    "@storybook/react": "^5.2.6",
-    "@types/react": "^16.9.11",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-dynamic-import-node": "^2.3.0",
-    "fork-ts-checker-webpack-plugin": "^3.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "typescript": "^3.7.2"
   }
 }

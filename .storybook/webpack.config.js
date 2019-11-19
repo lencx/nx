@@ -1,5 +1,7 @@
-// const path = require('path');
+const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+console.log('path: ', path.resolve(__dirname, '../packages/*'));
 
 module.exports = ({ config, mode }) => {
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -24,8 +26,9 @@ module.exports = ({ config, mode }) => {
   //   include: path.resolve(__dirname, '../'),
   // });
 
+  // config.resolve.enforceExtension = false;
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
-  config.resolve.enforceExtension = false;
+  config.resolve.alias["@hooks"] = path.resolve(__dirname, '../packages/hooks/src');
 
   config.plugins.push(
     new ForkTsCheckerWebpackPlugin(),

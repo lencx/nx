@@ -51,7 +51,7 @@ const readmeTpl = pkgName => `# ${pkgName}
 `;
 
 const tsconfigTpl = `{
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["src/**/*"],
   "compilerOptions": {
     "outDir": "lib",

@@ -16,4 +16,4 @@ yarn.lock
 # build
 /packages/**/lib
 /packages/**/esm
-/packages/**/storybook-static
+/storybook-static

@@ -1,6 +1,5 @@
 {
   "name": "nx",
-  "private": true,
   "version": "0.0.2",
   "author": "lencx <cxin1314@gmail.com>",
   "license": "MIT",
@@ -8,7 +7,7 @@
     "nx": "node ./bin/nx",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "publish": "lerna version --conventional-commits",
+    "publish": "yarn build && lerna publish --conventional-commits",
     "clean": "yarn clean:pack && yarn clean:storybook",
     "clean:pack": "rimraf packages/**/{lib,esm}",
     "clean:storybook": "rimraf storybook-static",

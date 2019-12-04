@@ -1,13 +1,13 @@
 {
-  "name": "@nofwl/nx-hooks",
-  "version": "0.0.1",
+  "name": "@l8n/hooks",
+  "version": "0.0.2",
   "description": "react hooks",
   "main": "lib/index",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
   "author": "lencx",
   "license": "MIT",
-  "homepage": "https://github.com/nofwl/nx#readme",
+  "homepage": "https://github.com/lencx/nx#readme",
   "scripts": {
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nofwl/nx.git"
+    "url": "git+ssh://git@github.com/lencx/nx.git"
   },
   "publishConfig": {
     "access": "public"
@@ -29,6 +29,6 @@
     "hooks"
   ],
   "bugs": {
-    "url": "https://github.com/nofwl/nx/issues"
+    "url": "https://github.com/lencx/nx/issues"
   }
 }

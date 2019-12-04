@@ -20,12 +20,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/lencx/nx.git"
+    "url": "https://github.com/lencx/nx.git"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
+    "react",
     "hooks"
   ],
   "bugs": {

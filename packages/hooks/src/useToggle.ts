@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
+export type UseToggle = [boolean, () => void];
+
 /**
  * useToggle
  * @author lencx
- * @param {boolean} state
+ * @param {boolean} status
  */
-export default (status: boolean) => {
+export default function useToggle(status: boolean): UseToggle {
   const [state, setState] = useState(status);
   const toggle = (): void => setState(!state);
   return [state, toggle];

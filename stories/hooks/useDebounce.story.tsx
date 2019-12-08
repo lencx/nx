@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { useDebounce } from '@hooks';
 
 storiesOf('Hooks|useDebounce', module)
   .add('Simple', () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const debounceSearchTerm = useDebounce(searchTerm, 1000);
-    useEffect(() => {
-      if (debounceSearchTerm) {
-        console.log('fetch api');
+    const debounceSearchTerm = useDebounce({
+      payload: searchTerm,
+      callback(data) {
+        console.log('fetch api:', data);
       }
-    }, [debounceSearchTerm])
+    }, 1000);
     return (
       <>
         <input type="text" onChange={e => setSearchTerm(e.target.value)} />

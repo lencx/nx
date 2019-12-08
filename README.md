@@ -24,5 +24,5 @@ yarn storybook:build
 
 ## Packages
 
-- [ ] hooks - react hooks
+* hooks - react hooks
 <!-- - [ ] utils -->

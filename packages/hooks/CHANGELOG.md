@@ -7,12 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @l8n/hooks
 
-
-
-
-
-# HOOKS CHANGELOG
-
 ## 0.0.2 (Dec 5, 2019)
 
 * 💫 add `useDebounce`

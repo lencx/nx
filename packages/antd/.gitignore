@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# node.js
+node_modules
+package-lock.json
+yarn.lock
+
+# IDE
+.idea
+.vscode
+
+# log
+*.log
+
+# build
+/lib
+/esm
+/storybook-static

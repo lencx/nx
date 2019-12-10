@@ -29,6 +29,7 @@ module.exports = ({ config, mode }) => {
   // config.resolve.enforceExtension = false;
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
   config.resolve.alias["@hooks"] = path.resolve(__dirname, '../packages/hooks/src');
+  config.resolve.alias["@antd"] = path.resolve(__dirname, '../packages/antd/src');
 
   config.plugins.push(
     new ForkTsCheckerWebpackPlugin(),

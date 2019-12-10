@@ -1,29 +1,57 @@
-import { useState, useRef, useEffect } from 'react';
+import { useReducer, useRef, useEffect } from 'react';
 
 /**
  * useDebounce
  * @author lencx
- * @param {object} debounce - payload: debounced value; callback: Only call effect if debounced value changes
+ * @param {object} debounce -
+ * - payload: debounced value;
+ * - callback: only call effect if debounced value changes;
+ * - initCall: initial callback;
  * @param {number} delay - millisecond(ms)
  */
 export default function useDebounce(debounce: {
-  payload: string,
-  callback?: (payload: string) => void,
+  payload: object | string,
+  callback?: (payload: object | string) => void,
+  initCall?: boolean,
 }, delay: number) {
-  const { payload, callback } = debounce;
+  const { payload, callback, initCall = false } = debounce;
   const timer = useRef<ReturnType<typeof setTimeout>>();
-  const [debouncedValue, setDebouncedValue] = useState(payload);
+  const [state, setState] = useReducer((o, n) => ({...o, ...n}), {
+    payload,
+    initCall,
+  });
+
+  const handleCall = (data: object | string) => {
+    if(typeof callback === 'function') {
+      callback(data);
+    }
+  };
+
+  const depend = [...(typeof payload === 'string' ? [payload] : Object.values(payload))];
 
   useEffect(() => {
     timer.current = setTimeout(() => {
-      setDebouncedValue(payload);
-      if(payload && typeof callback === 'function') {
-        callback(payload);
+      if (state.initCall) {
+        if (typeof payload === 'object') {
+          const newPayload = {...state.payload, ...payload};
+          setState({ payload: newPayload });
+          handleCall(newPayload);
+        }
+        if (typeof payload === 'string') {
+          setState({ payload });
+          handleCall(payload);
+        }
       }
     }, delay);
 
     return () => timer.current && clearTimeout(timer.current);
-  }, [payload, delay]);
+  }, [...depend, delay]);
 
-  return debouncedValue;
+  useEffect(() => {
+    if (!state.initCall) {
+      setState({ initCall: true });
+    }
+  }, depend)
+
+  return state.payload;
 };

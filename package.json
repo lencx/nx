@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "author": "lencx <cxin1314@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "nx": "node ./bin/nx",
     "bootstrap": "lerna bootstrap",

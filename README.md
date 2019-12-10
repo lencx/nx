@@ -16,10 +16,20 @@ yarn nx [-bdirwhV] <package_name>
 
 # ---------------------------
 
+# lerna publish
+yarn release
+
+# clear build
 yarn clean # package/{lib,esm} & storybook-static
 
-yarn storybook # dev
-yarn storybook:build
+# install package dependencies
+yarn bootstrap
+
+# deploy storybook to gh-pages
+yarn deploy
+
+# run storybook
+yarn storybook
 ```
 
 ## Packages

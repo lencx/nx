@@ -16,10 +16,7 @@
     "noFallthroughCasesInSwitch": true,
     "lib": ["es2018", "dom"],
     "importHelpers": true,
-    "baseUrl": ".",
-    "paths": {
-      "@hooks": ["./packages/hooks/src"],
-    }
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules",

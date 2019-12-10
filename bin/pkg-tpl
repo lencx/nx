@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
 const decamelize = require('decamelize');
-const moment = require('moment');
+// const moment = require('moment');
 
-moment.locale();
+// moment.locale();
 
 const indexTpl = `
 `;
 
-const changelogTpl = `## 0.0.1 (${moment().format('ll')})
-`;
+// const changelogTpl = `## 0.0.1 (${moment().format('ll')})
+// `;
+const changelogTpl = ``;
 
 const packageTpl = pkgName => `{
   "name": "@nofwl/nx-${decamelize(pkgName, '-')}",

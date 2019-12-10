@@ -7,12 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package nx
 
-
-
-
-
-# NX CHANGELOG
-
 ## 0.0.2 (Nov 16 2019)
 
 * name created by `yarn nx <package_name>` is valid

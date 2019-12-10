@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { useDebounce } from '@hooks';
 
 storiesOf('Hooks|useDebounce', module)
   .add('Simple', () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    useDebounce({
-      payload: searchTerm,
+    const { payload, setPayload } = useDebounce({
       initCall: true, // initial callback
+      payload: 'test', // initial value
       callback(data) {
         console.log('fetch api:', data);
       },
     }, 2000);
     return (
-      <input type="text" onChange={e => setSearchTerm(e.target.value)} />
+      <input value={payload} type="text" onChange={e => setPayload(e.target.value)} />
     )
   })
   .add('Mulit Fields', () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [language, setLanguage] = useState('js');
-    useDebounce({
-      initCall: false,
+    const { payload, setPayload } = useDebounce({
+      // initCall: true,
       payload: {
-        query: searchTerm,
-        language,
+        language: 'html',
       },
       callback(data) {
         console.log('fetch api:', data);
@@ -31,12 +27,12 @@ storiesOf('Hooks|useDebounce', module)
     }, 2000);
     return (
       <>
-        <select onChange={e => setLanguage(e.target.value)}>
+        <select value={payload.language} onChange={e => setPayload({ language: e.target.value })}>
           <option value="js">JS</option>
           <option value="html">HTML</option>
           <option value="css">CSS</option>
         </select>
-        <input type="text" onChange={e => setSearchTerm(e.target.value)} />
+        <input type="text" onChange={e => setPayload({ query: e.target.value })} />
       </>
     )
   });

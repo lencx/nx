@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { useDebounce } from '@hooks';
 
 storiesOf('Hooks|useDebounce', module)
   .add('Simple', () => {
+    const [showQuery, setQuery] = useState();
     const { payload, setPayload } = useDebounce({
       initCall: true, // initial callback
       payload: 'test', // initial value
       callback(data) {
         console.log('fetch api:', data);
+        setQuery(data);
       },
     }, 2000);
     return (
-      <input value={payload} type="text" onChange={e => setPayload(e.target.value)} />
+      <>
+        <input value={payload} type="text" onChange={e => setPayload(e.target.value)} />
+        <p>query: {showQuery}</p>
+      </>
     )
   })
   .add('Mulit Fields', () => {
+    const [showQuery, setQuery] = useState('');
     const { payload, setPayload } = useDebounce({
       // initCall: true,
       payload: {
@@ -23,6 +29,7 @@ storiesOf('Hooks|useDebounce', module)
       },
       callback(data) {
         console.log('fetch api:', data);
+        setQuery(JSON.stringify(data));
       },
     }, 2000);
     return (
@@ -33,6 +40,7 @@ storiesOf('Hooks|useDebounce', module)
           <option value="css">CSS</option>
         </select>
         <input type="text" onChange={e => setPayload({ query: e.target.value })} />
+        <p>query: {showQuery}</p>
       </>
     )
   });

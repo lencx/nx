@@ -7,7 +7,7 @@
   "types": "esm/index.d.ts",
   "author": "lencx",
   "license": "MIT",
-  "homepage": "https://github.com/lencx/nx#readme",
+  "homepage": "https://lencx.github.io/nx",
   "scripts": {
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/lencx/nx/issues"
   },
-  "gitHead": "162ab7fdc717b271253656cf690ff873bb244321"
+  "gitHead": "162ab7fdc717b271253656cf690ff873bb244321",
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
 }

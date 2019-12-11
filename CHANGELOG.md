@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/lencx/nx/compare/v0.0.5...v0.0.6) (2019-12-11)
+
+
+### Bug Fixes
+
+* could not find dependency: 'tslib' ([00ae5de](https://github.com/lencx/nx/commit/00ae5dea112714cb806ef0ade8f189697f7a067d))
+
+
+
+
+
 ## [0.0.5](https://github.com/lencx/nx/compare/v0.0.4...v0.0.5) (2019-12-10)
 
 

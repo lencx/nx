@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@hooks": ["./packages/hooks/src"],
+      "@l8n/hooks": ["./packages/hooks/src"],
     }
   }
 }

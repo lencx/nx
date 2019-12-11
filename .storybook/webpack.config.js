@@ -20,6 +20,13 @@ module.exports = ({ config, mode }) => {
       },
     ],
   });
+
+  config.module.rules.push({
+    test: /\.(stories|story)\.tsx?$/,
+    loaders: [require.resolve('@storybook/source-loader')],
+    enforce: 'pre',
+  });
+
   // config.module.rules.push({
   //   test: /\.scss$/,
   //   use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -28,7 +35,7 @@ module.exports = ({ config, mode }) => {
 
   // config.resolve.enforceExtension = false;
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
-  config.resolve.alias["@hooks"] = path.resolve(__dirname, '../packages/hooks/src');
+  config.resolve.alias["@l8n/hooks"] = path.resolve(__dirname, '../packages/hooks/src');
 
   config.plugins.push(
     new ForkTsCheckerWebpackPlugin(),

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { useDebounce } from '@hooks';
+import { useDebounce } from '@l8n/hooks';
 
 storiesOf('Hooks|useDebounce', module)
   .add('Simple', () => {
@@ -28,7 +28,7 @@ storiesOf('Hooks|useDebounce', module)
         language: 'html',
       },
       callback(data) {
-        console.log('fetch api:', data);
+        console.log('fetch api:', JSON.stringify(data));
         setQuery(JSON.stringify(data));
       },
     }, 2000);

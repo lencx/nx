@@ -13,7 +13,7 @@ const indexTpl = `
 const changelogTpl = ``;
 
 const packageTpl = pkgName => `{
-  "name": "@nofwl/${decamelize(pkgName, '-')}",
+  "name": "@l8n/${decamelize(pkgName, '-')}",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index",

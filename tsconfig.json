@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@l8n/hooks": ["./packages/hooks/src"],
+      "@l8n/antd": ["./packages/antd/src"],
     }
   }
 }

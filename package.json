@@ -16,6 +16,9 @@
     "storybook:build": "yarn clean:storybook && build-storybook -s public",
     "deploy": "yarn storybook:build && gh-pages -d storybook-static"
   },
+  "dependencies": {
+    "antd": "^3.26.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -47,7 +50,5 @@
     "typescript": "^3.7.2",
     "validate-npm-package-name": "^3.0.0"
   },
-  "workspaces": [
-    "./packages/*"
-  ]
+  "workspaces": ["./packages/*"]
 }

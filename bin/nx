@@ -23,6 +23,7 @@ const genFile = require('genfile');
 const chalk = require('chalk');
 const shell = require('shelljs');
 const validate = require("validate-npm-package-name");
+const fs = require('@l8n/fs');
 
 const templates = require('./pkg-tpl');
 const pkg = require('../package.json');
@@ -41,6 +42,9 @@ const argv = program.parse(process.argv);
 
 const pkgName = argv.args[0];
 
+const webpackFile = './.storybook/webpack.config.js';
+const tsconfigFile = './tsconfig.json';
+
 const createPackage = () => {
   log(chalk.yellow(`Ready to create ${pkgName}...`));
   setTimeout(() => {
@@ -50,6 +54,8 @@ const createPackage = () => {
         log(chalk.grey('\n##################################'));
         log(chalk.green(`[package]: ${pkgName}`));
         shell.exec('yarn nx -h');
+        fs.insertLine(webpackFile, `  config.resolve.alias["@l8n/${pkgName}"] = path.resolve(__dirname, '../packages/${pkgName}/src');`, 38);
+        fs.insertLine(tsconfigFile, `      "@l8n/${pkgName}": ["./packages/${pkgName}/src"],`, 6);
         process.exit();
       });
   }, 1000);
@@ -92,6 +98,8 @@ if (pkgName === undefined || pkgName === '-') {
     if (program.delete) {
       log(chalk.red(`[delete]: ${pkgName}`));
       shell.rm('-rf', basePath);
+      fs.removeLine(webpackFile, `  config.resolve.alias["@l8n/${pkgName}"] = path.resolve(__dirname, '../packages/${pkgName}/src');`);
+      fs.removeLine(tsconfigFile, `      "@l8n/${pkgName}": ["./packages/${pkgName}/src"],`);
     }
     if (program.install) {
       log(chalk.green(`[install]: ${pkgName}`));

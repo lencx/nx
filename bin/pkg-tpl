@@ -13,7 +13,7 @@ const indexTpl = `
 const changelogTpl = ``;
 
 const packageTpl = pkgName => `{
-  "name": "@nofwl/nx-${decamelize(pkgName, '-')}",
+  "name": "@nofwl/${decamelize(pkgName, '-')}",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index",
@@ -21,7 +21,7 @@ const packageTpl = pkgName => `{
   "types": "esm/index.d.ts",
   "author": "lencx",
   "license": "MIT",
-  "homepage": "https://github.com/nofwl/nx#readme",
+  "homepage": "https://github.com/lencx/nx#readme",
   "scripts": {
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
@@ -34,7 +34,7 @@ const packageTpl = pkgName => `{
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nofwl/nx.git"
+    "url": "https://github.com/lencx/nx.git"
   },
   "publishConfig": {
     "access": "public"
@@ -43,7 +43,7 @@ const packageTpl = pkgName => `{
     "${pkgName}"
   ],
   "bugs": {
-    "url": "https://github.com/nofwl/nx/issues"
+    "url": "https://github.com/lencx/nx/issues"
   }
 }
 `;

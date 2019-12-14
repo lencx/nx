@@ -1,6 +1,6 @@
 {
   "name": "@l8n/fs",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "file handling",
   "main": "lib/index",
   "module": "esm/index.js",

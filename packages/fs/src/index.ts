@@ -68,18 +68,3 @@ function updateElement(array: string[], item: string, newItem?: string) {
     }
   }
 }
-
-// insertLine('./test/1.txt', '23323', 10);
-// removeLine('./test/1.txt', '666');
-// updateLine('./test/1.txt', '3233', '666');
-
-// insertLine({
-//   filename: './test/1.txt',
-//   text: '1920129088999',
-// }, 10);
-
-
-
-// const data = fs.readFileSync('./temp.txt', 'utf8').split('\n')
-// data.splice(data.length - 2, 0, 'test')
-// fs.writeFileSync('./temp.txt', data.join('\n'), 'utf8');

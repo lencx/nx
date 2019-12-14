@@ -17,3 +17,6 @@ yarn.lock
 /lib
 /esm
 /storybook-static
+
+coverage
+.nyc_output

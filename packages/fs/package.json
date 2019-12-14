@@ -14,7 +14,8 @@
     "build": "yarn build:cjs && yarn build:esm",
     "watch": "tsc --watch",
     "clean": "rimraf test/file/**.*",
-    "test": "yarn clean && ava"
+    "test": "nyc ava --serial --tap",
+    "report": "nyc report --reporter=html"
   },
   "files": [
     "lib/",
@@ -39,6 +40,8 @@
   "devDependencies": {
     "@types/node": "^12.12.17",
     "ava": "^2.4.0",
+    "coveralls": "^3.0.9",
+    "nyc": "^14.1.1",
     "rimraf": "^3.0.0"
   }
 }

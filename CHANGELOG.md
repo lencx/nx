@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/lencx/nx/compare/v0.0.7...v0.1.0) (2019-12-14)
+
+
+### Features
+
+* antd ([ba37891](https://github.com/lencx/nx/commit/ba37891f84eb469de137e2af91ae1a747ad9bf66))
+
+
+
+
+
 ## [0.0.7](https://github.com/lencx/nx/compare/v0.0.6...v0.0.7) (2019-12-14)
 
 **Note:** Version bump only for package nx

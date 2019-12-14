@@ -1,6 +1,6 @@
 {
   "name": "@l8n/antd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "antd hooks",
   "main": "lib/index",
   "module": "esm/index.js",

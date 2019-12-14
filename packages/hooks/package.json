@@ -1,6 +1,6 @@
 {
   "name": "@l8n/hooks",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "react hooks",
   "main": "lib/index",
   "module": "esm/index.js",

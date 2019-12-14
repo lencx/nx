@@ -34,5 +34,6 @@ yarn storybook
 
 ## Packages
 
-* hooks - react hooks
+* @l8n/hooks - react hooks
+* @l8n/fs - file handling
 <!-- - [ ] utils -->

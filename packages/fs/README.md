@@ -1,5 +1,7 @@
 # fs
 
+> file handling
+
 ## Install
 
 ```bash

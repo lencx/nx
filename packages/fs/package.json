@@ -7,15 +7,14 @@
   "types": "esm/index.d.ts",
   "author": "lencx",
   "license": "MIT",
-  "homepage": "https://github.com/lencx/nx/tree/master/packages/fs#readme",
+  "homepage": "https://github.com/lencx/nx",
   "scripts": {
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
     "build": "yarn build:cjs && yarn build:esm",
     "watch": "tsc --watch",
     "clean": "rimraf test/file/**.*",
-    "test": "nyc ava --serial --tap",
-    "report": "nyc report --reporter=html"
+    "test": "nyc ava --serial --tap"
   },
   "files": [
     "lib/",
@@ -41,7 +40,6 @@
   "devDependencies": {
     "@types/node": "^12.12.17",
     "ava": "^2.4.0",
-    "nyc": "^14.1.1",
-    "rimraf": "^3.0.0"
+    "nyc": "^14.1.1"
   }
 }

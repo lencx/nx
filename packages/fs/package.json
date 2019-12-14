@@ -41,7 +41,6 @@
   "devDependencies": {
     "@types/node": "^12.12.17",
     "ava": "^2.4.0",
-    "coveralls": "^3.0.9",
     "nyc": "^14.1.1",
     "rimraf": "^3.0.0"
   }

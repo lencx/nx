@@ -34,7 +34,5 @@ yarn storybook
 
 ## Packages
 
-* @l8n/fs - file handling
 * @l8n/hooks - react hooks
 * @l8n/antd - ant design
-<!-- - [ ] utils -->

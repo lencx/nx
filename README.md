@@ -1,5 +1,7 @@
 # NX
 
+![NX](./nx.png)
+
 ```bash
 # create package
 yarn nx <package_name>

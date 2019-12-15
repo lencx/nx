@@ -7,7 +7,7 @@
   "types": "esm/index.d.ts",
   "author": "lencx",
   "license": "MIT",
-  "homepage": "https://github.com/nofwl/nx#readme",
+  "homepage": "https://lencx.github.io/nx",
   "scripts": {
     "build:cjs": "tsc",
     "build:esm": "tsc -m esNext --outDir esm",
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nofwl/nx.git"
+    "url": "https://github.com/lencx/nx.git"
   },
   "publishConfig": {
     "access": "public"
@@ -29,7 +29,7 @@
     "antd"
   ],
   "bugs": {
-    "url": "https://github.com/nofwl/nx/issues"
+    "url": "https://github.com/lencx/nx/issues"
   },
   "peerDependencies": {
     "antd": "^3.26.2",

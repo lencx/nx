@@ -1,6 +1,8 @@
-# NX
-
-![NX](./nx.png)
+<p align="center">
+  <a href="https://lencx.github.io/nx">
+    <img width="100" src="./.storybook/nx.svg" />
+  </a>
+</p>
 
 ```bash
 # create package

@@ -33,6 +33,7 @@ program
   .option('-b, --build', 'build package')
   .option('-d, --delete', 'delete package')
   .option('-i, --install', 'install package')
+  .option('-uni, --uninstall', 'uninstall package')
   .option('-r, --remove', 'remove build: `lib` and `esm` directory')
   .option('-t, --test', chalk.yellow('test package #TODO')) // TODO
   .option('-w, --watch', 'watch package')
@@ -90,7 +91,9 @@ if (pkgName === undefined || pkgName === '-') {
   // package root path
   const basePath = `./packages/${pkgName}`;
 
-  if (program.build || program.delete || program.install || program.remove || program.watch) {
+  if (program.build || program.delete || program.install || program.uninstall || program.remove || program.watch) {
+    const installArgs = argv.rawArgs.slice(4);
+    const arg = argv.rawArgs[2];
     if (program.build) {
       log(chalk.green(`[build]: ${pkgName}`));
       shell.exec(`cd ${basePath} && npm run build`);
@@ -101,9 +104,19 @@ if (pkgName === undefined || pkgName === '-') {
       fs.removeLine(webpackFile, `  config.resolve.alias["@l8n/${pkgName}"] = path.resolve(__dirname, '../packages/${pkgName}/src');`);
       fs.removeLine(tsconfigFile, `      "@l8n/${pkgName}": ["./packages/${pkgName}/src"],`);
     }
-    if (program.install) {
-      log(chalk.green(`[install]: ${pkgName}`));
-      shell.exec(`cd ${basePath} && npm i`);
+    if (arg === '-i' || arg === '-uni') {
+      if (installArgs.length === 0) {
+        log(chalk.red(`[${arg === '-i' ? 'install' : 'uninstall'}]: Missing package name`));
+        process.exit();
+      }
+      if (arg === '-i') {
+        log(chalk.green(`[install]: ${pkgName}`));
+        shell.exec(`cd ${basePath}; npm install ${installArgs.join(' ')} --scripts-prepend-node-path`);
+      }
+      if (arg === '-uni') {
+        log(chalk.green(`[uninstall]: ${pkgName}`));
+        shell.exec(`cd ${basePath}; npm uninstall ${installArgs.join(' ')}`);
+      }
     }
     if (program.watch) {
       log(chalk.cyan(`[watch]: ${pkgName}`));

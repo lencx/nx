@@ -35,6 +35,7 @@ module.exports = ({ config, mode }) => {
 
   // config.resolve.enforceExtension = false;
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
+  config.resolve.alias["@l8n/rc"] = path.resolve(__dirname, '../packages/rc/src');
   config.resolve.alias["@l8n/hooks"] = path.resolve(__dirname, '../packages/hooks/src');
   config.resolve.alias["@l8n/antd"] = path.resolve(__dirname, '../packages/antd/src');
 

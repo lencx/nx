@@ -1,0 +1,37 @@
+{
+  "name": "@l8n/rc",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "author": "lencx",
+  "license": "MIT",
+  "homepage": "https://github.com/lencx/nx#readme",
+  "scripts": {
+    "build:cjs": "tsc",
+    "build:esm": "tsc -m esNext --outDir esm",
+    "build": "yarn build:cjs && yarn build:esm",
+    "watch": "tsc --watch"
+  },
+  "files": [
+    "lib/",
+    "esm/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lencx/nx.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "rc"
+  ],
+  "bugs": {
+    "url": "https://github.com/lencx/nx/issues"
+  },
+  "dependencies": {
+    "styled-components": "^4.4.1"
+  }
+}

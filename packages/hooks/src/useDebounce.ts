@@ -40,7 +40,9 @@ export default function useDebounce(debounce: {
       }
     }, delay);
 
-    return () => timer.current && clearTimeout(timer.current);
+    return () => {
+      timer.current && clearTimeout(timer.current);
+    }
   }, [state.payload, delay]);
 
   useEffect(() => {

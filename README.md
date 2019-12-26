@@ -13,6 +13,7 @@ yarn nx [-bdirwhV] <package_name>
 # -b   build
 # -d   delete
 # -i   install
+# -uni uninstall
 # -r   remove build directory
 # -w   watch current package
 # -h   help
@@ -40,3 +41,4 @@ yarn storybook
 
 * @l8n/hooks - react hooks
 * @l8n/antd - ant design
+* @l8n/rc - components

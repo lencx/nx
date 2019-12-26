@@ -1,8 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@l8n/rc": ["./packages/rc/src"],
       "@l8n/hooks": ["./packages/hooks/src"],
       "@l8n/antd": ["./packages/antd/src"],
     }

@@ -12,7 +12,7 @@
     "clean": "yarn clean:pack && yarn clean:storybook",
     "clean:pack": "rimraf packages/**/{lib,esm}",
     "clean:storybook": "rimraf storybook-static",
-    "storybook": "start-storybook -p 6300 -s public",
+    "storybook": "start-storybook -p 6380 -s public",
     "storybook:build": "yarn clean:storybook && build-storybook -s public",
     "deploy": "yarn storybook:build && gh-pages -d storybook-static"
   },
